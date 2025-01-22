@@ -168,7 +168,7 @@ Web servers handle tasks like serving static files, processing dynamic content, 
     - Uses request-response model between client and server
     - Defines methods like GET, POST, PUT, DELETE for different operations
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b644516a-7804-47e9-9455-0a04e3cecf0b/1b320a01-aa7a-4f84-9e55-b8a99fde2163/image.png)
+![image](https://github.com/user-attachments/assets/f9594892-ea3b-4193-b9e5-210d2933b44e)
 
 ### NOTES :
 
@@ -281,7 +281,7 @@ curl http://localhost:1500
 - IPv6 (Internet Protocol version 6) is the next generation of IP addressing, using 128-bit addresses that provide an vastly larger address space compared to IPv4.
 - Written in hexadecimal notation (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334), IPv6 can support approximately 340 undecillion unique addresses.
 - This expanded capacity helps address IPv4's limitations and better supports the growing number of Internet-connected devices.
-- The IPv6 has groups of four hexadecimal digits ( $4 \times 4 = 16 \text \space bits$ ) which are seperated by colons.
+- The IPv6 has groups of four hexadecimal digits ( $4 \times 4 = 16 \text{ bits}$ ) which are seperated by colons.
 - The groups are :
     - Hextets
     - Hexadectets
