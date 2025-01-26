@@ -30,12 +30,16 @@ Solutions to assignments are included for each corresponding week.
 ---
 
 ## 🗂️ Navigation Links
-
 ### Notes
 - [Week 1 Notes](./Lecture%20Notes/Week%201)
+- [Week 2 Notes](./Lecture%20Notes/Week%201) ( Soon, As Usual Lazy )
 
 ### Sollutions
 - [Week 1 Sollutions](./Graded%20Assesment/W1-GA.md)
+- [Week 2 Sollutions](./Graded%20Assesment/W2-GA.md)
+
+### LAB Assignment
+- [Week 2 LA](./Lab%20Assignments/Week%202)
 ---
 
 ## 💬 Contact
