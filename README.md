@@ -39,7 +39,7 @@ Solutions to assignments are included for each corresponding week.
 - [Week 2 Sollutions](./Graded%20Assesment/W2-GA.md)
 
 ### LAB Assignment
-- [Week 2 LA](./Lab%20Assignments/Week%202)
+- [Week 2 LAB Assignment](./Lab%20Assignments/Week%202)
 ---
 
 ## 💬 Contact
