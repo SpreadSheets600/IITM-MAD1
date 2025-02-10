@@ -1,56 +1,92 @@
-from flask import Flask, render_template, request
-import pandas as pd
+import base64
+import csv
+from io import BytesIO
+
 import matplotlib.pyplot as plt
-import os
+from flask import Flask, render_template, request, url_for
 
 app = Flask(__name__)
 
-data_file = "data.csv"
 
-def load_data():
-    return pd.read_csv(data_file)
+def read_csv():
+    with open("data.csv", newline="", encoding="utf-8") as csvfile:
+        reader = csv.DictReader(csvfile)
+        data = list(reader)
+    return data
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    error = None
     if request.method == "POST":
-        data = load_data()
-        search_type = request.form.get("ID")
-        search_value = request.form.get("id_value").strip()
+        id_type = request.form.get("ID")
+        id_value = request.form.get("id_value")
 
-        if search_type == "student_id":
-            if not search_value.isdigit():
-                error = "Invalid Student ID. Please enter a numeric Student ID."
-            else:
-                student_data = data[data["Student ID"] == int(search_value)]
-                if student_data.empty:
-                    error = "No records found for the given Student ID."
-                else:
-                    total_marks = student_data["Marks"].sum()
-                    return render_template("student_details.html", records=student_data.to_dict(orient="records"), total=total_marks)
-        
-        elif search_type == "course_id":
-            course_data = data[data["Course ID"] == search_value]
-            if course_data.empty:
-                error = "No records found for the given Course ID."
-            else:
-                avg_marks = round(course_data["Marks"].mean(), 2)
-                max_marks = course_data["Marks"].max()
-                plot_histogram(course_data["Marks"], search_value)
-                return render_template("course_details.html", avg=avg_marks, max=max_marks, course_id=search_value)
+        if not id_value:
+            return render_template(
+                "error.html",
+                message="ID value cannot be empty!",
+                back_link=url_for("index"),
+            )
+
+        data = read_csv()
+
+        if id_type == "student_id":
+            student_data = [row for row in data if row["Student id"] == id_value]
+
+            if not student_data:
+                return render_template(
+                    "error.html",
+                    message="Student ID not found!",
+                    back_link=url_for("index"),
+                )
+
+            total_marks = sum(int(row[" Marks"]) for row in student_data)
+
+            return render_template(
+                "student_details.html",
+                student_data=student_data,
+                total_marks=total_marks,
+            )
+
+        elif id_type == "course_id":
+            course_data = [row for row in data if row[" Course id"] == id_value or row[" Course id"] == " " + id_value]
+
+            if not course_data:
+                return render_template(
+                    "error.html",
+                    message="Course ID Not Found!",
+                    back_link=url_for("index"),
+                )
+
+            marks = [int(row[" Marks"]) for row in course_data]
+            average_marks = sum(marks) / len(marks)
+            maximum_marks = max(marks)
+
+            img = BytesIO()
+            plt.hist(marks, bins=10, edgecolor="black")
+            plt.title(f"Marks Distribution for Course {id_value}")
+            plt.xlabel("Marks")
+            plt.ylabel("Frequency")
+            plt.savefig(img, format="png")
+            img.seek(0)
+            plot_url = base64.b64encode(img.getvalue()).decode("utf8")
+
+            return render_template(
+                "course_details.html",
+                average_marks=average_marks,
+                maximum_marks=maximum_marks,
+                plot_url=plot_url,
+            )
+
         else:
-            error = "Please select an option and enter a valid ID."
+            return render_template(
+                "error.html",
+                message="Invalid input selected!",
+                back_link=url_for("index"),
+            )
 
-    return render_template("index.html", error=error)
+    return render_template("index.html")
 
-def plot_histogram(marks, course_id):
-    plt.figure()
-    plt.hist(marks, bins=5, edgecolor='black')
-    plt.xlabel("Marks")
-    plt.ylabel("Frequency")
-    plt.title(f"Marks Distribution for {course_id}")
-    plt.savefig("static/histogram.png")
-    plt.close()
 
 if __name__ == "__main__":
     app.run(debug=True)
