@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student and Course Information</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+
+  <body>
+    <h1>Welcome Setudent And Course Details App</h1>
+    <form method="POST" action="/" id="data-form">
+      <input
+        type="radio"
+        name="ID"
+        value="student_id"
+        id="student_id"
+        required
+      />
+      <label for="student_id">Student ID</label>
+      <input type="radio" name="ID" value="course_id" id="course_id" required />
+      <label for="course_id">Course ID</label>
+      <br /><br />
+      <input
+        type="text"
+        name="id_value"
+        placeholder="Enter Student ID or Course ID"
+        required
+      />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

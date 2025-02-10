@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Details</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Course Details</h1>
+    <table border="2" id="course-details-table">
+      <tr>
+        <th>Average Marks</th>
+        <th>Maximum Marks</th>
+      </tr>
+      <tr>
+        <td>{{ average_marks }}</td>
+        <td>{{ maximum_marks }}</td>
+      </tr>
+    </table>
+    <br />
+    <h3>Marks Distribution (Histogram)</h3>
+    <img class="plot"
+      src="data:image/png;base64,{{ plot_url }}"
+      alt="Course Marks Histogram"
+    />
+    <br />
+    <a class="button" href="{{ url_for('index') }}">Go Back</a>
+  </body>
+</html>

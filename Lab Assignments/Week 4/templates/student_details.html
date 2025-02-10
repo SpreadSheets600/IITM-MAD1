@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Details</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Student Details</h1>
+    <table border="2" id="student-details-table">
+      <thead>
+        <tr>
+          <th scope="col">Student ID</th>
+          <th scope="col">Course ID</th>
+          <th scope="col">Marks</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in student_data %}
+        <tr>
+          <td>{{ row['Student id'] }}</td>
+          <td>{{ row[' Course id'] }}</td>
+          <td>{{ row[' Marks'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2" style="text-align: center">Total Marks</td>
+          <td>{{ total_marks }}</td>
+        </tr>
+      </tfoot>
+    </table>
+    <br />
+    <a class="button" href="{{ url_for('index') }}">Go Back</a>
+  </body>
+</html>
