@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Student Details</h1>
+    {% if students|length !=0 %}
+    <table id="all-students">
+      <tr>
+        <th>SNo</th>
+        <th>Roll Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Actions</th>
+      </tr>
+      {%for row in students%}
+      <tr>
+        <td>{{loop.index}}</td>
+        <td><a href="/student/{{row.id}}">{{row.roll_number}}</a></td>
+        <td>{{row.first_name}}</td>
+        <td>{{row.last_name}}</td>
+        <td>
+          <a href="/student/{{row.id}}/update" type="button">Update</a>
+          <a href="/student/{{row.id}}/delete" type="button">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>No students found.Add students now!</p>
+    {% endif %}
+    <a href="/student/create" type="button">Add Student</a>
+  </body>
+</html>

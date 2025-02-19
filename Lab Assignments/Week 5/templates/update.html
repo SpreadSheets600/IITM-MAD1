@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <form
+      action="/student/{{row['student_id']}}/update"
+      method="POST"
+      id="update-form"
+    >
+      <div>
+        <label>Roll Number:</label>
+        <input
+          type="text"
+          name="roll"
+          value="{{row['roll_number']}}"
+          disabled
+        />
+      </div>
+      <div>
+        <label>First Name:</label>
+        <input
+          type="text"
+          name="f_name"
+          value="{{row['first_name']}}"
+          required
+        />
+      </div>
+      <div>
+        <label>Last Name:</label>
+        <input type="text" name="l_name" value="{{row['last_name']}}" />
+      </div>
+      <div>
+        <label>Select Courses: </label>
+        <input type="checkbox" name="courses" value="course_1" {{'checked' if 1
+        in cid}}/>
+        <label>MAD I</label>
+        <input type="checkbox" name="courses" value="course_2" {{'checked' if 2
+        in cid}}/>
+        <label>DBMS</label>
+        <input type="checkbox" name="courses" value="course_3" {{'checked' if 3
+        in cid}}/>
+        <label>PDSA</label>
+        <input type="checkbox" name="courses" value="course_4" {{'checked' if 4
+        in cid}}/>
+        <label>BDM</label>
+      </div>
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </body>
+</html>
