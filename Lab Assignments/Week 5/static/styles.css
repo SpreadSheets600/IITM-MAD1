@@ -1,0 +1,191 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f7fa;
+  color: #2d3748;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+/* Form Styles */
+form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+  transform: scale(1.2);
+}
+
+input[type="checkbox"] + label {
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+
+input[type="submit"] {
+  background-color: #4299e1;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+input[type="submit"]:hover {
+  background-color: #3182ce;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  margin: 2rem 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+  background-color: #4299e1;
+  color: white;
+  font-weight: 500;
+}
+
+tr:hover {
+  background-color: #f7fafc;
+}
+
+/* Links Styles */
+a {
+  color: #4299e1;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #3182ce;
+}
+
+a[type="button"] {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  background-color: #4299e1;
+  color: white;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+a[type="button"]:hover {
+  background-color: #3182ce;
+}
+
+a[href*="delete"] {
+  background-color: #e53e3e;
+}
+
+a[href*="delete"]:hover {
+  background-color: #c53030;
+}
+
+/* Headings */
+h1 {
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.studentTitle {
+  color: #2d3748;
+  margin: 2rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #4299e1;
+}
+
+/* Messages */
+p {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+}
+
+p:contains("No students found") {
+  background-color: #ebf8ff;
+  border: 1px solid #4299e1;
+  color: #2b6cb0;
+}
+
+p:contains("Student Already exist") {
+  background-color: #fff5f5;
+  border: 1px solid #e53e3e;
+  color: #c53030;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  form {
+    padding: 1rem;
+  }
+
+  input[type="checkbox"] + label {
+    display: block;
+    margin: 0.5rem 0;
+  }
+}
