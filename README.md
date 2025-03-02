@@ -40,11 +40,15 @@ Solutions to assignments are included for each corresponding week.
 - [Week 3 Sollutions](./Graded%20Assesment/W3-GA.md)
 - [Week 4 Sollutions](./Graded%20Assesment/W4-GA.md)
 - [Week 5 Sollutions](./Graded%20Assesment/W5-GA.md)
+- [Week 6 Sollutions](./Graded%20Assesment/W6-GA.md)
+- [Week 7 Sollutions](./Graded%20Assesment/W7-GA.md)
 
 ### LAB Assignment
 - [Week 2 LAB Assignment](./Lab%20Assignments/Week%202)
 - [Week 3 LAB Assignment](./Lab%20Assignments/Week%203)
 - [Week 4 LAB Assignment](./Lab%20Assignments/Week%204)
+- [Week 5 LAB Assignment](./Lab%20Assignments/Week%205)
+- [Week 6 LAB Assignment](./Lab%20Assignments/Week%206)
 ---
 
 ## 💬 Contact
