@@ -1,4 +1,4 @@
-📚 IITM - DS - MAD 1 Solutions
+# 📚 IITM - DS - MAD 1 Solutions
 
 Hello there!  
 **SOHAM** here. Welcome to my repository for the **IITM Modern Application Developmet 1** course. This repository contains my **lecture notes**, **assignment solutions**, and other resources for DBMS, organized for easy navigation and study.
